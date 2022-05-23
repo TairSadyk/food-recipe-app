@@ -1,7 +1,7 @@
 import View from "./View.js";
 import icons from "url:../../img/icons.svg";
 // import { Fraction } from "fractional";
-import fracty from "fracty";
+// import fracty from "fracty";
 class RecipeView extends View {
   _parentElement = document.querySelector(".recipe");
   // #data;
@@ -33,7 +33,6 @@ class RecipeView extends View {
   }
 
   _generateMarkup() {
-    const fracty = require("fracty");
     return `
     <figure class="recipe__fig">
     <img src="${this._data.image}" alt="${
@@ -126,13 +125,13 @@ class RecipeView extends View {
   }
 
   _generateMarkupIngredient(ingredient) {
+    // const fracty = require("fracty");
+    // ${ingredient.quantity ? fracty(ingredient.quantity) : ""}
     return `<li class="recipe__ingredient">
     <svg class="recipe__icon">
     <use href="${icons}#icon-check"></use>
     </svg>
-    <div class="recipe__quantity">${
-      ingredient.quantity ? fracty(ingredient.quantity) : ""
-    }</div>
+    <div class="recipe__quantity">${ingredient.quantity}</div>
     <div class="recipe__description">
       <span class="recipe__unit">${ingredient.unit}</span>
       ${ingredient.description}
